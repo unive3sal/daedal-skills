@@ -1,0 +1,44 @@
+{
+  "skill_name": "fzf",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "I want a shell command to pick one tracked file in this git repo with fzf and preview the first 120 lines before opening it in $EDITOR. Please make it safe for paths with spaces.",
+      "expected_output": "Provides a practical fzf pipeline using git ls-files, a read-only preview, robust handling for filenames with spaces, and opens exactly the selected file without destructive behavior.",
+      "files": [],
+      "expectations": [
+        "The answer uses fzf for interactive file selection from tracked git files.",
+        "The preview command is read-only and limits output to roughly the first 120 lines.",
+        "The command accounts for filenames with spaces using NUL delimiters, arrays, or another robust technique, or clearly explains any remaining filename limitations.",
+        "The command opens only the selected file in $EDITOR and does not mutate repository state.",
+        "The answer does not silently run an interactive fzf command."
+      ]
+    },
+    {
+      "id": 1,
+      "prompt": "This fzf command is not searching the right field: `ps -ef | fzf --nth=1`. I only want to search the command column but still show the whole process list. Explain what to change.",
+      "expected_output": "Explains that ps output needs delimiter/header-aware field selection and recommends an fzf command that searches command fields while preserving the full displayed process line.",
+      "files": [],
+      "expectations": [
+        "The answer identifies that --nth controls searchable fields rather than displayed fields.",
+        "The answer explains why --nth=1 searches the UID/user column for typical ps -ef output.",
+        "The answer recommends a delimiter-aware and header-aware fzf command for ps output.",
+        "The answer searches the command portion while preserving the full process line in the display.",
+        "The answer notes that parsing ps output by whitespace-delimited fields has some fragility or platform dependence."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Help me make an fzf picker for git branches. I want a preview of recent commits, colors to render correctly, and ctrl-r to reload the branch list. Do not checkout anything automatically.",
+      "expected_output": "Builds a git branch picker using fzf with an ANSI-aware git log preview, a ctrl-r reload binding, and prints or stores the selected branch without automatically checking it out.",
+      "files": [],
+      "expectations": [
+        "The command pipes a git branch list into fzf.",
+        "The preview uses git log or an equivalent read-only git command for recent commits.",
+        "The command includes --ansi when using colorized git output.",
+        "The command binds ctrl-r to reload the branch list.",
+        "The command prints or stores the selected branch without automatically checking out, deleting, or modifying branches."
+      ]
+    }
+  ]
+}

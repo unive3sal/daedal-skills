@@ -8,7 +8,9 @@ A collection of reusable skills for AI coding agents.
 
 | Skill | Path | Description | Requirements |
 | --- | --- | --- | --- |
+| `fd` | [`skills/fd`](skills/fd) | Compose, debug, and explain fast `fd` commands for finding files and directories by name, glob, regex, type, size, time, or path. | Requires the `fd` CLI for preferred commands; falls back to `find` when unavailable. |
 | `fzf` | [`skills/fzf`](skills/fzf) | Compose, debug, and explain safe `fzf` commands for fuzzy file selection, interactive pickers, previews, key bindings, and shell workflows. | Requires the `fzf` CLI when running generated commands. |
+| `ripgrep` | [`skills/ripgrep`](skills/ripgrep) | Compose, debug, and explain fast `rg` commands for searching text, codebases, logs, documents, definitions, references, and regex matches. | Requires the `rg` CLI for preferred commands; falls back to `grep` when unavailable. |
 
 ## Install
 
@@ -18,16 +20,20 @@ Install all skills in this repository:
 npx skills add unive3sal/daedal-skills
 ```
 
-Install only the `fzf` skill:
+Install a single skill:
 
 ```bash
+npx skills add unive3sal/daedal-skills --skill fd
 npx skills add unive3sal/daedal-skills --skill fzf
+npx skills add unive3sal/daedal-skills --skill ripgrep
 ```
 
-Install directly from the skill path:
+Install directly from a skill path:
 
 ```bash
+npx skills add https://github.com/unive3sal/daedal-skills/tree/main/skills/fd
 npx skills add https://github.com/unive3sal/daedal-skills/tree/main/skills/fzf
+npx skills add https://github.com/unive3sal/daedal-skills/tree/main/skills/ripgrep
 ```
 
 ## Discoverability on skills.sh

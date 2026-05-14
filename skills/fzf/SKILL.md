@@ -1,13 +1,13 @@
 ---
 name: fzf
-description: "Use this skill whenever the user wants to use, compose, debug, or explain fzf commands: fuzzy file selection, interactive command-line pickers, multi-select workflows, previews, key bindings, shell integration, filtering lists, or replacing ad-hoc grep/find menus with fzf. This skill helps Claude choose safe fzf options, build robust pipelines, and explain tradeoffs for interactive fuzzy finding."
-compatibility: "Requires the fzf CLI to be installed for running commands; generated examples assume a POSIX-like shell unless the user specifies otherwise."
-license: "Apache-2.0"
+description: Use this skill whenever the user wants to use, compose, debug, or explain fzf commands: fuzzy file selection, interactive command-line pickers, multi-select workflows, previews, key bindings, shell integration, filtering lists, fuzzy finding when the exact name is unknown and only hints are available, or replacing ad-hoc grep/find menus with fzf. This skill helps Claude choose safe fzf options, use fzf as a pre-ranking tool with fd or find, build robust pipelines, and explain tradeoffs for interactive fuzzy finding.
+compatibility: Requires the fzf CLI to be installed for running commands; generated examples assume a POSIX-like shell unless the user specifies otherwise.
+license: Apache-2.0
 ---
 
 # fzf
 
-Use `fzf` when the user needs an interactive fuzzy picker for files, commands, history, logs, structured lists, or any stream of text. Favor it when a human should choose from many possible items rather than when a deterministic script should make the choice automatically.
+Use `fzf` when the user needs an interactive fuzzy picker for files, commands, history, logs, structured lists, or any stream of text. Favor it when a human should choose from many possible items, especially when the exact name is unknown and only partial hints are available, rather than when a deterministic script should make the choice automatically. When the source list is large or file-oriented, use `fd` or `find` to produce candidates and `fzf` as the pre-ranking and selection layer.
 
 ## Start by clarifying the execution context
 

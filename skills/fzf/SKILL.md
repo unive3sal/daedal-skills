@@ -1,6 +1,6 @@
 ---
 name: fzf
-description: Use this skill whenever the user wants to use, compose, debug, or explain fzf commands: fuzzy file selection, interactive command-line pickers, multi-select workflows, previews, key bindings, shell integration, filtering lists, fuzzy finding when the exact name is unknown and only hints are available, or replacing ad-hoc grep/find menus with fzf. This skill helps Claude choose safe fzf options, use fzf as a pre-ranking tool with fd or find, build robust pipelines, and explain tradeoffs for interactive fuzzy finding.
+description: "Use this skill whenever the user wants to use, compose, debug, or explain fzf commands: fuzzy file selection, interactive command-line pickers, multi-select workflows, previews, key bindings, shell integration, filtering lists, fuzzy finding when the exact name is unknown and only hints are available, or replacing ad-hoc grep/find menus with fzf. This skill helps Claude choose safe fzf options, use fzf as a pre-ranking tool with fd or find, build robust pipelines, and explain tradeoffs for interactive fuzzy finding."
 compatibility: Requires the fzf CLI to be installed for running commands; generated examples assume a POSIX-like shell unless the user specifies otherwise.
 license: Apache-2.0
 ---

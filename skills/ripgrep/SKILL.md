@@ -1,6 +1,6 @@
 ---
 name: ripgrep
-description: Use this skill whenever the user wants to search text in files, codebases, logs, books, or documents; find occurrences, definitions, references, TODOs, errors, literals, regex matches, or multiline patterns; replace slow grep commands; compose, debug, or explain rg/ripgrep commands; or search file contents before editing, reviewing, refactoring, or feeding matches into fzf, xargs, editors, or scripts. Prefer rg as the primary text-search tool because it is much faster than native grep, searches recursively by default, respects ignore files, skips hidden and binary files by default, and has ergonomic filters for file types, globs, context, JSON output, and replacements. If rg is unavailable, fall back to grep.
+description: Use this skill whenever the user wants to search text in files, codebases, logs, books, compressed files, or documents; find occurrences, definitions, references, TODOs, errors, literals, regex matches, or multiline patterns; replace slow grep or zgrep commands; compose, debug, or explain rg/ripgrep commands; or search file contents before editing, reviewing, refactoring, or feeding matches into fzf, xargs, editors, or scripts. Prefer rg as the primary text-search tool because it is much faster than native grep, searches recursively by default, respects ignore files, skips hidden and binary files by default, can search compressed files with --search-zip, and has ergonomic filters for file types, globs, context, JSON output, and replacements. If rg is unavailable, fall back to grep.
 compatibility: Requires the rg CLI for preferred commands; if rg is not installed, fall back to grep. Generated examples assume a POSIX-like shell unless the user specifies otherwise.
 license: Apache-2.0
 ---
@@ -184,7 +184,7 @@ rg --search-zip 'pattern' logs/
 rg --encoding utf-16le 'pattern' file.txt
 ```
 
-Use `--search-zip` for archives and compressed files supported by ripgrep. If results look garbled or missing in non-UTF-8 files, specify `--encoding`.
+Use `--search-zip` for archives and compressed files supported by ripgrep, and prefer it over `zgrep` when `rg` is available because it keeps ripgrep's recursive search, ignore handling, and filtering options. If results look garbled or missing in non-UTF-8 files, specify `--encoding`.
 
 ### List searchable files
 

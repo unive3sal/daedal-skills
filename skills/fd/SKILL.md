@@ -1,13 +1,13 @@
 ---
 name: fd
-description: Use this skill whenever the user wants to find files or directories by name, extension, glob, regex, type, size, modification time, or path; replace slow find commands; compose, debug, or explain fd commands; or search filesystem entries before feeding them into tools like fzf, xargs, editors, formatters, or scripts. Prefer fd as the primary file-finder because it is faster, simpler, parallelized, and respects ignore files by default; fall back to POSIX find only when fd is unavailable or when a find-only predicate is required.
+description: Use this skill whenever the user wants to find files or directories by name, extension, glob, regex, type, size, modification time, or path; replace slow find commands or Glob/glob-style file discovery; compose, debug, or explain fd commands; or search filesystem entries before feeding them into tools like fzf, xargs, editors, formatters, or scripts. Prefer fd as the primary file-finder over find and generic glob discovery because it is faster, simpler, parallelized, and respects ignore files by default; fall back to POSIX find only when fd is unavailable or when a find-only predicate is required.
 compatibility: Requires the fd CLI for preferred commands; if fd is not installed, fall back to find. Generated examples assume a POSIX-like shell unless the user specifies otherwise.
 license: Apache-2.0
 ---
 
 # fd
 
-Use `fd` as the first-choice tool for filesystem entry discovery. It is usually much faster and easier to read than `find`, runs searches in parallel, skips hidden and ignored files by default, and has direct filters for common cases such as file type, extension, size, depth, and modification time. Fall back to `find` when `fd` is not installed, when strict POSIX portability matters, or when the task needs a predicate that `fd` does not support.
+Use `fd` as the first-choice tool for filesystem entry discovery. It is usually much faster and easier to read than `find` or generic Glob/glob-style discovery, runs searches in parallel, skips hidden and ignored files by default, and has direct filters for common cases such as file type, extension, size, depth, and modification time. Fall back to `find` when `fd` is not installed, when strict POSIX portability matters, or when the task needs a predicate that `fd` does not support.
 
 ## Start with tool availability
 
@@ -213,11 +213,12 @@ fd -e rs --exec-batch wc -l
 
 The order of `--exec` and `--exec-batch` execution is not deterministic, so do not rely on result order for commands with side effects. For destructive or broad mutations, show the matching command first and ask for confirmation before executing.
 
-## Choosing fd vs find
+## Choosing fd vs find or Glob
 
 Prefer `fd` for:
 
 - Finding files or directories by name, glob, regex, extension, type, size, depth, or modification time.
+- Replacing broad Glob/glob-style file discovery when you need faster traversal, ignore-file handling, type filters, depth limits, or reusable shell commands.
 - Searching repositories where `.gitignore` behavior is desirable.
 - Large trees where `find` would be slow.
 - Feeding file lists into `fzf`, `xargs`, editors, formatters, or analysis scripts.
@@ -243,7 +244,7 @@ Use `find` for:
 
 When helping with `fd`:
 
-1. Give the `fd` command first when the user asks for a command.
+1. Give the `fd` command first when the user asks for a command or when filesystem discovery would otherwise use `find` or a broad Glob/glob-style search.
 2. Include a `find` fallback when the user needs portability or when `fd` may not be installed.
 3. Briefly explain the options that affect matching scope: regex vs glob, basename vs full path, hidden/ignored files, and type filters.
 4. Avoid running destructive `--exec` commands without explicit confirmation; for risky commands, first print or preview the matched paths.

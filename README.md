@@ -8,6 +8,7 @@ A collection of reusable skills for AI coding agents.
 
 | Skill | Path | Description | Requirements |
 | --- | --- | --- | --- |
+| `aws-cli` | [`skills/aws-cli`](skills/aws-cli) | Compose, debug, and explain safe `aws` commands for inspecting, managing, and scripting AWS resources with JMESPath queries, profiles, regions, pagination, and waiters. | Requires the AWS CLI v2 (`aws`); most commands need configured credentials. |
 | `fd` | [`skills/fd`](skills/fd) | Compose, debug, and explain fast `fd` commands for finding files and directories by name, glob, regex, type, size, time, or path. | Requires the `fd` CLI for preferred commands; falls back to `find` when unavailable. |
 | `fzf` | [`skills/fzf`](skills/fzf) | Compose, debug, and explain safe `fzf` commands for fuzzy file selection, interactive pickers, previews, key bindings, and shell workflows. | Requires the `fzf` CLI when running generated commands. |
 | `jaq` | [`skills/jaq`](skills/jaq) | Compose, debug, and explain fast `jaq` commands for querying, transforming, filtering, compacting, validating, and converting JSON-like structured data. | Requires the `jaq` CLI for preferred commands; falls back to `jq` when unavailable. |
@@ -24,6 +25,7 @@ npx skills add unive3sal/daedal-skills
 Install a single skill:
 
 ```bash
+npx skills add unive3sal/daedal-skills --skill aws-cli
 npx skills add unive3sal/daedal-skills --skill fd
 npx skills add unive3sal/daedal-skills --skill fzf
 npx skills add unive3sal/daedal-skills --skill jaq
@@ -33,6 +35,7 @@ npx skills add unive3sal/daedal-skills --skill ripgrep
 Install directly from a skill path:
 
 ```bash
+npx skills add https://github.com/unive3sal/daedal-skills/tree/main/skills/aws-cli
 npx skills add https://github.com/unive3sal/daedal-skills/tree/main/skills/fd
 npx skills add https://github.com/unive3sal/daedal-skills/tree/main/skills/fzf
 npx skills add https://github.com/unive3sal/daedal-skills/tree/main/skills/jaq

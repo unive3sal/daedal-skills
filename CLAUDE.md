@@ -8,7 +8,7 @@ This repository is a collection of reusable skills for AI coding agents, publish
 
 ## Structure
 
-- `skills/<skill-name>/SKILL.md` contains each skill. Current skills are `fd`, `fzf`, `jaq`, and `ripgrep`.
+- `skills/<skill-name>/SKILL.md` contains each skill. Current skills are `aws-cli`, `fd`, `fzf`, `jaq`, and `ripgrep`.
 - Each `SKILL.md` uses YAML frontmatter with at least `name`, `description`, `compatibility`, and `license`, followed by Markdown instructions.
 - `README.md` is the public index: keep its skill table and install examples in sync whenever adding, removing, or renaming a skill.
 - `.gitignore` ignores `.claude/` and `*-workspace/`; skill evaluation workspaces should stay untracked.
@@ -26,6 +26,7 @@ npx skills add unive3sal/daedal-skills
 Install a single skill:
 
 ```bash
+npx skills add unive3sal/daedal-skills --skill aws-cli
 npx skills add unive3sal/daedal-skills --skill fd
 npx skills add unive3sal/daedal-skills --skill fzf
 npx skills add unive3sal/daedal-skills --skill jaq
@@ -35,6 +36,7 @@ npx skills add unive3sal/daedal-skills --skill ripgrep
 Install directly from a skill path:
 
 ```bash
+npx skills add https://github.com/unive3sal/daedal-skills/tree/main/skills/aws-cli
 npx skills add https://github.com/unive3sal/daedal-skills/tree/main/skills/fd
 npx skills add https://github.com/unive3sal/daedal-skills/tree/main/skills/fzf
 npx skills add https://github.com/unive3sal/daedal-skills/tree/main/skills/jaq

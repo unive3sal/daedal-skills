@@ -1,0 +1,40 @@
+{
+  "skill_name": "cloudflare-cli",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "Give me a command to list only proxied A records for example.com using profile staging, with deterministic filtering. Do not contact my account.",
+      "expected_output": "Explicitly scoped cf DNS list command using type/proxied filters and all-match semantics, with pagination caveat; no account access.",
+      "files": [],
+      "expectations": [
+        "Uses cf dns records list with --zone example.com and --profile staging.",
+        "Uses --type A, --proxied true, and --match all rather than fuzzy search.",
+        "Explains pagination and does not claim account access or a complete first-page inventory."
+      ]
+    },
+    {
+      "id": 1,
+      "prompt": "Prepare a DNS-only A record for api.example.com pointing at 192.0.2.10 with TTL 300 using profile staging. Show the preview and actual command, but do not execute either.",
+      "expected_output": "Zone/profile-scoped DNS create commands with JSON body and dry-run preview; verifies zone intent and distinguishes proposal from execution.",
+      "files": [],
+      "expectations": [
+        "Uses cf dns records create scoped to example.com and staging, identifying the inferred zone.",
+        "Provides valid JSON body with type A, name api.example.com, content 192.0.2.10, ttl 300, and proxied false.",
+        "Separates --dry-run preview from live command and does not execute either.",
+        "Advises confirming target and checking existing records before an authorized change."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Plan how to list every R2 object under reports/ in bucket example-archive using profile staging. Explain how to retrieve subsequent pages; do not contact my account.",
+      "expected_output": "Prefix-scoped R2 list commands and returned-cursor continuation until exhaustion without invented response fields or automatic-pagination claims.",
+      "files": [],
+      "expectations": [
+        "Uses cf r2 objects list with bucket example-archive, prefix reports/, and profile staging.",
+        "Shows --cursor continuation while preserving the original scope.",
+        "Explains repeating with returned cursors until exhausted without asserting automatic pagination or inventing response fields.",
+        "Does not contact the account or claim real inventory results."
+      ]
+    }
+  ]
+}

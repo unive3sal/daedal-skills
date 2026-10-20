@@ -10,6 +10,7 @@ A collection of reusable skills for AI coding agents.
 | --- | --- | --- | --- |
 | `aws-cli` | [`skills/aws-cli`](skills/aws-cli) | Compose, debug, and explain safe `aws` commands for inspecting, managing, and scripting AWS resources with JMESPath queries, profiles, regions, pagination, and waiters. | Requires the AWS CLI v2 (`aws`); most commands need configured credentials. |
 | `cloudflare-cli` | [`skills/cloudflare-cli`](skills/cloudflare-cli) | Discover, compose, and debug safe Cloudflare `cf` commands for DNS, Workers, R2, KV, D1, authentication, and resource management. | Requires Cloudflare's `cf` CLI; most resource commands need configured authentication. |
+| `crate-research` | [`skills/crate-research`](skills/crate-research) | Research Rust crates by feature, compare adoption, releases, and issue/PR engagement, and recommend options for user approval before implementation. | Requires web/HTTP access for current evidence; optional `gh` CLI. |
 | `fd` | [`skills/fd`](skills/fd) | Compose, debug, and explain fast `fd` commands for finding files and directories by name, glob, regex, type, size, time, or path. | Requires the `fd` CLI for preferred commands; falls back to `find` when unavailable. |
 | `fzf` | [`skills/fzf`](skills/fzf) | Compose, debug, and explain safe `fzf` commands for fuzzy file selection, interactive pickers, previews, key bindings, and shell workflows. | Requires the `fzf` CLI when running generated commands. |
 | `jaq` | [`skills/jaq`](skills/jaq) | Compose, debug, and explain fast `jaq` commands for querying, transforming, filtering, compacting, validating, and converting JSON-like structured data. | Requires the `jaq` CLI for preferred commands; falls back to `jq` when unavailable. |
@@ -28,6 +29,7 @@ Install a single skill:
 ```bash
 npx skills add unive3sal/daedal-skills --skill aws-cli
 npx skills add unive3sal/daedal-skills --skill cloudflare-cli
+npx skills add unive3sal/daedal-skills --skill crate-research
 npx skills add unive3sal/daedal-skills --skill fd
 npx skills add unive3sal/daedal-skills --skill fzf
 npx skills add unive3sal/daedal-skills --skill jaq
@@ -39,6 +41,7 @@ Install directly from a skill path:
 ```bash
 npx skills add https://github.com/unive3sal/daedal-skills/tree/main/skills/aws-cli
 npx skills add https://github.com/unive3sal/daedal-skills/tree/main/skills/cloudflare-cli
+npx skills add https://github.com/unive3sal/daedal-skills/tree/main/skills/crate-research
 npx skills add https://github.com/unive3sal/daedal-skills/tree/main/skills/fd
 npx skills add https://github.com/unive3sal/daedal-skills/tree/main/skills/fzf
 npx skills add https://github.com/unive3sal/daedal-skills/tree/main/skills/jaq

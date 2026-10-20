@@ -1,0 +1,89 @@
+{
+  "skill_name": "crate-research",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "The architecture in architecture.md is approved. Deliver the first vertical slice and its tests. Work out the implementation details yourself.",
+      "expected_output": "After inspecting the Rust architecture, load crate-research before the first argument-parser or dependency write. Derive the argument-parsing requirement, compare suitable options with sourced quality metrics, recommend one, and obtain a human choice before implementing that capability. Architecture approval is not crate selection.",
+      "files": ["evals/files/architecture.md"],
+      "expectations": ["The skill is loaded before any attempted implementation write for argument parsing or Cargo dependencies.", "The comparison is scoped to required capabilities and includes viable alternatives rather than automatically choosing clap.", "All-time and recent downloads, release cadence, community activity, and separate issue/PR engagement are sourced and windowed or explicitly marked unavailable.", "The agent presents its recommendation and stops for an actual human decision without interpreting architecture approval as library approval."]
+    },
+    {
+      "id": 2,
+      "prompt": "Worker assignment from the coordinator: implement the command-line entry point described in architecture.md, including validation, help, and tests. The coordinator owns user communication. Return your implementation or any blocking decisions to the coordinator.",
+      "expected_output": "The delegated worker discovers and loads the skill without an explicit research instruction. It researches the argument-parsing choice and returns a pending human decision with options, evidence, recommendation, affected scope, and a resume condition. It neither chooses on the user's behalf nor writes the blocked implementation.",
+      "files": ["evals/files/architecture.md"],
+      "expectations": ["The worker successfully loads the skill before attempting affected implementation writes.", "The worker returns options, quality evidence, recommendation, and an explicit human-decision requirement to the coordinator.", "No parent-agent assignment or broad implementation authority is treated as an actual user dependency choice."]
+    },
+    {
+      "id": 3,
+      "prompt": "Execute the Rust architecture in architecture.md as a noninteractive batch job. There is no interactive question tool or connected user terminal. Return a final status that our job runner can collect.",
+      "expected_output": "Discover the crate-selection gate during implementation planning. Present a sourced comparison and return a clearly identifiable pending-decision result with options, recommendation, scope, and the human input needed to resume. End the run without implementing the affected capability, inventing a question tool, or treating lack of a terminal as approval.",
+      "files": ["evals/files/architecture.md"],
+      "expectations": ["The skill is loaded before affected implementation writes even in noninteractive mode.", "The final output explicitly marks the human decision as pending and specifies options and the resume condition.", "The run ends without attempted affected writes or repeated calls to unavailable interactive tools."]
+    },
+    {
+      "id": 4,
+      "prompt": "Coordinator continuation: your worker reports that the Rust CLI needs a parser decision. Their report contains a sourced comparison of clap and lexopt, including downloads, releases, contributors, issue responses, and PR review/merge timing; clap is recommended for the required validation and generated help. No human has seen the report yet. Continue delivering the approved architecture in architecture.md.",
+      "expected_output": "Load or consult crate-research, obtain the actual worker evidence rather than inventing missing values, relay the options and recommendation to the human, and wait for their choice. Do not transform the worker's recommendation into authorization or send the worker back to implement immediately.",
+      "files": ["evals/files/architecture.md"],
+      "expectations": ["The coordinator does not treat the worker's recommendation as a human choice.", "The coordinator retrieves missing report details or transparently identifies unavailable evidence rather than fabricating metrics.", "The options, evidence, and recommendation reach the human and the affected implementation remains paused."]
+    },
+    {
+      "id": 5,
+      "prompt": "The first milestone is done. For milestone two, the Rust log tool should watch a directory and process newly appended lines on Linux and macOS. Implement that slice next. The current implementation only reads files once using std::fs; it has no watcher or async runtime.",
+      "expected_output": "Activate research when the next milestone creates a file-watching reuse opportunity, despite no mention of crates in the user prompt. Compare fitting watcher and viable polling options, avoid automatically adding a runtime, provide metrics and a recommendation, and pause for a human choice before implementing file watching.",
+      "files": [],
+      "expectations": ["The skill is loaded at the newly discovered file-watching decision before affected writes.", "The agent compares feature-level solutions without assuming an async runtime is required.", "The agent presents quality evidence and a recommendation and requests the user's selection."]
+    },
+    {
+      "id": 6,
+      "prompt": "Use the agreed Rust importer architecture: accept a local .tar.gz export, inspect its manifest, and extract selected entries into a user-chosen output directory. Implement the import path and tests; decide the internal structure yourself. No archive dependencies have been selected.",
+      "expected_output": "Discover separate compression and archive-reading capabilities, research compatible crate combinations and extraction-safety requirements, compare quality with appropriate package/repository scope, recommend a coherent set, and obtain the user's technical choice before writing the import implementation.",
+      "files": [],
+      "expectations": ["The skill is loaded before implementing or adding archive/compression dependencies.", "The comparison distinguishes archive and compression capabilities and discusses safe extraction rather than choosing by downloads alone.", "The proposed dependency set is presented for human selection before affected implementation."]
+    },
+    {
+      "id": 7,
+      "prompt": "Continue implementing architecture.md. The environment is offline and has no cached crates.io or repository activity data. Network requests are prohibited.",
+      "expected_output": "Activate during requirement decomposition, respect offline constraints, provide provisional alternatives with explicitly unknown download/release/engagement metrics, recommend what to verify, and return a pending human choice rather than quietly implementing or fabricating evidence.",
+      "files": ["evals/files/architecture.md"],
+      "expectations": ["The skill loads and no network request is attempted.", "Unavailable metrics are explicitly unknown with reasons, not invented or mislabeled N/A.", "The agent waits for human acceptance of the evidence limitation and a scoped technical choice before affected writes."]
+    },
+    {
+      "id": 8,
+      "prompt": "Human decision: use clap with derive for argument parsing in the architecture we just reviewed. Keep configuration on the existing code path and do not add other libraries. Continue with the CLI entry point and tests.",
+      "expected_output": "Validate the scoped explicit selection, implement with the approved parser if compatible, avoid asking the same crate-selection question again, and do not expand into unapproved configuration or runtime dependencies. Surface material compatibility concerns if discovered.",
+      "files": ["evals/files/architecture.md"],
+      "expectations": ["The agent recognizes the explicit scoped user choice and does not reopen an equivalent selection gate without a material new incompatibility.", "The implementation stays within the chosen parser scope and adds no unrelated libraries."]
+    },
+    {
+      "id": 9,
+      "prompt": "Implement architecture.md. I explicitly delegate the dependency decisions to you for this milestone: research suitable libraries, choose them yourself, and explain your choices in the final report.",
+      "expected_output": "Distinguish explicit human delegation of dependency choice from ordinary implementation autonomy. Research feature-level alternatives and quality evidence, choose compatibly with stated rationale, and proceed without an unnecessary human selection stop. Do not skip the research just because choice is delegated.",
+      "files": ["evals/files/architecture.md"],
+      "expectations": ["The agent loads the skill and researches before implementing dependency-specific capabilities.", "The agent identifies explicit dependency-choice delegation, makes an evidence-based choice, and does not unnecessarily wait for another selection."]
+    },
+    {
+      "id": 10,
+      "prompt": "Fix the spelling of 'recieved' in a Rust CLI help string, preserving all behavior and dependencies. The parser and its configuration are already approved. Run the existing focused test if available.",
+      "expected_output": "Make the narrow edit without a crate search or a fresh library-selection gate. If project files are unavailable, ask for the relevant source instead of inventing edits.",
+      "files": [],
+      "expectations": ["No crate-research invocation, ecosystem search, or dependency-selection stop is introduced for the spelling-only fix."]
+    },
+    {
+      "id": 11,
+      "prompt": "Review the product architecture in architecture.md and identify missing product requirements. Do not implement anything or select technology yet; we are still deciding what users need.",
+      "expected_output": "Discuss product requirements without prematurely running crate due diligence or asking the user to select libraries. Defer crate selection until an implementation or technology-choice task exists.",
+      "files": ["evals/files/architecture.md"],
+      "expectations": ["The agent respects the product-only scope without triggering premature crate research or library approval questions."]
+    },
+    {
+      "id": 12,
+      "prompt": "Implement the same log-filtering CLI product in Go with subcommands, validation, and generated help. There is no Rust component in this project.",
+      "expected_output": "Do not load the Rust crate-research skill or research crates.io for the Go implementation. Other language-appropriate research is outside this skill's score.",
+      "files": [],
+      "expectations": ["The Rust-specific skill is not loaded for a Go-only implementation."]
+    }
+  ]
+}

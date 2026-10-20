@@ -8,7 +8,7 @@ This repository is a collection of reusable skills for AI coding agents, publish
 
 ## Structure
 
-- `skills/<skill-name>/SKILL.md` contains each skill. Current skills are `aws-cli`, `cloudflare-cli`, `fd`, `fzf`, `jaq`, and `ripgrep`.
+- `skills/<skill-name>/SKILL.md` contains each skill. Current skills are `aws-cli`, `cloudflare-cli`, `crate-research`, `fd`, `fzf`, `jaq`, and `ripgrep`.
 - Each `SKILL.md` uses YAML frontmatter with at least `name`, `description`, `compatibility`, and `license`, followed by Markdown instructions.
 - `README.md` is the public index: keep its skill table and install examples in sync whenever adding, removing, or renaming a skill.
 - `.gitignore` ignores `.claude/` and `*-workspace/`; skill evaluation workspaces should stay untracked.
@@ -28,6 +28,7 @@ Install a single skill:
 ```bash
 npx skills add unive3sal/daedal-skills --skill aws-cli
 npx skills add unive3sal/daedal-skills --skill cloudflare-cli
+npx skills add unive3sal/daedal-skills --skill crate-research
 npx skills add unive3sal/daedal-skills --skill fd
 npx skills add unive3sal/daedal-skills --skill fzf
 npx skills add unive3sal/daedal-skills --skill jaq
@@ -49,6 +50,7 @@ npx skills add https://github.com/unive3sal/daedal-skills/tree/main/skills/ripgr
 
 When creating or editing a skill:
 
+- Write all evaluation prompts, expected outputs, assertions, and other eval prose in English.
 - Match the existing style: pushy trigger-focused `description`, concise `compatibility`, `license: Apache-2.0`, then practical command guidance.
 - Prefer fast modern CLIs in this collection while documenting fallbacks: `fd` -> `find`, `rg` -> `grep`, `jaq` -> `jq`.
 - Include availability checks when the preferred CLI may not be installed.

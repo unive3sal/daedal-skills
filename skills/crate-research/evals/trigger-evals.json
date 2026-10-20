@@ -1,0 +1,22 @@
+[
+  {"query":"The Rust architecture in docs/design.md is approved. Build the first vertical slice, including the CLI entry point and tests; work out the implementation details yourself.","should_trigger":true},
+  {"query":"Worker task: implement the Rust command-line entry point from the design. The coordinator handles user communication. Return your work or blockers to the coordinator.","should_trigger":true},
+  {"query":"Execute the approved Rust importer design as a batch job with no interactive terminal. It reads local .tar.gz exports and extracts selected entries. Return a final job status.","should_trigger":true},
+  {"query":"Milestone two of our Rust tool needs live directory watching on Linux and macOS. The current implementation reads files once with std::fs. Implement the milestone and tests.","should_trigger":true},
+  {"query":"The coordinator approved the persistence architecture, but no SQLite integration has been selected. Implement the Rust local-history backend and migration path.","should_trigger":true},
+  {"query":"I want a local-first log inspector; the design document specifies a single Rust binary, scan and summarize commands, generated help, and severity validation. Take it from design to implementation.","should_trigger":true},
+  {"query":"Continue the Rust implementation from the handoff. The previous worker proposed clap and included an evidence report, but no human has reviewed the library choice yet.","should_trigger":true},
+  {"query":"Implement the Rust architecture offline. There is no cached package metadata and outbound requests are prohibited. Argument parsing has not been implemented yet.","should_trigger":true},
+  {"query":"We approved the Rust service boundaries, not the library stack. Your worker is about to implement TLS connections and certificate loading; handle the next implementation step.","should_trigger":true},
+  {"query":"Implement the Rust JSON export milestone. I explicitly delegate dependency selection to you: compare fitting libraries, choose one, and explain the evidence behind your choice.","should_trigger":true},
+  {"query":"Fix 'recieved' in the Rust CLI help text. Keep the already approved parser and all behavior unchanged; no new functionality or dependencies.","should_trigger":false},
+  {"query":"Explain what clap's derive macro does in this existing Rust function. I only need an explanation, not implementation changes or a library comparison.","should_trigger":false},
+  {"query":"Review docs/design.md for missing product requirements. Do not implement, choose technology, or investigate libraries yet.","should_trigger":false},
+  {"query":"Implement our log-filtering CLI in Go. The project has no Rust code or Cargo workspace.","should_trigger":false},
+  {"query":"Update the README to document the already implemented Rust scan command. Do not change code or dependencies.","should_trigger":false},
+  {"query":"The worker fixed an off-by-one error in the existing std-only line counter. Review the patch for correctness; do not introduce new capabilities.","should_trigger":false},
+  {"query":"Run the existing cargo test suite and summarize failures. Do not change files or make dependency decisions.","should_trigger":false},
+  {"query":"Rename the private Rust helper parse_level to parse_severity, updating its callers but preserving the implementation and dependencies.","should_trigger":false},
+  {"query":"Summarize the crate-selection report that the team has already approved. This is a writing task; do not redo the selection or fetch current metrics.","should_trigger":false},
+  {"query":"Our TypeScript agent needs a human approval step before deploying. Review its interaction design; there is no Rust implementation in scope.","should_trigger":false}
+]

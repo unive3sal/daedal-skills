@@ -14,6 +14,7 @@ A collection of reusable skills for AI coding agents.
 | `fd` | [`skills/fd`](skills/fd) | Compose, debug, and explain fast `fd` commands for finding files and directories by name, glob, regex, type, size, time, or path. | Requires the `fd` CLI for preferred commands; falls back to `find` when unavailable. |
 | `fzf` | [`skills/fzf`](skills/fzf) | Compose, debug, and explain safe `fzf` commands for fuzzy file selection, interactive pickers, previews, key bindings, and shell workflows. | Requires the `fzf` CLI when running generated commands. |
 | `jaq` | [`skills/jaq`](skills/jaq) | Compose, debug, and explain fast `jaq` commands for querying, transforming, filtering, compacting, validating, and converting JSON-like structured data. | Requires the `jaq` CLI for preferred commands; falls back to `jq` when unavailable. |
+| `recommendation-letter` | [`skills/recommendation-letter`](skills/recommendation-letter) | Draft, revise, review, and translate evidence-based academic and professional recommendation letters using ETH Zurich HR's guidance. | No external tools required for drafting; optional tools for reading files or exporting documents. |
 | `ripgrep` | [`skills/ripgrep`](skills/ripgrep) | Compose, debug, and explain fast `rg` commands for searching text, codebases, logs, documents, definitions, references, and regex matches. | Requires the `rg` CLI for preferred commands; falls back to `grep` when unavailable. |
 
 ## Install
@@ -33,6 +34,7 @@ npx skills add unive3sal/daedal-skills --skill crate-research
 npx skills add unive3sal/daedal-skills --skill fd
 npx skills add unive3sal/daedal-skills --skill fzf
 npx skills add unive3sal/daedal-skills --skill jaq
+npx skills add unive3sal/daedal-skills --skill recommendation-letter
 npx skills add unive3sal/daedal-skills --skill ripgrep
 ```
 
@@ -45,6 +47,7 @@ npx skills add https://github.com/unive3sal/daedal-skills/tree/main/skills/crate
 npx skills add https://github.com/unive3sal/daedal-skills/tree/main/skills/fd
 npx skills add https://github.com/unive3sal/daedal-skills/tree/main/skills/fzf
 npx skills add https://github.com/unive3sal/daedal-skills/tree/main/skills/jaq
+npx skills add https://github.com/unive3sal/daedal-skills/tree/main/skills/recommendation-letter
 npx skills add https://github.com/unive3sal/daedal-skills/tree/main/skills/ripgrep
 ```
 
